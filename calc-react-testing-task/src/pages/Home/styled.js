@@ -12,22 +12,27 @@ export const Container = styled.div`
 export const Header_name = styled.h1``;
 
 export const NavLink = styled(BaseNavLink)`
-  font-size: 15px;
+  font-size: 18px;
   width: 100px;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  &.active {
+    color: blue;
+  }
+  &:hover {
+    color: white;
+  }
 `
 
 export const LinkText = styled.p`
-  text-align: right;
-  font-size: 15px;
-  text-decoration: none;
-  color: black;
 `
 
 export const List = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-around;
   width: 200px;
   height: 100%;
 `
