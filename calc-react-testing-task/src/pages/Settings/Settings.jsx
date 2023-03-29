@@ -1,10 +1,15 @@
-import React from 'react'
-import Header from '../../components/Header/Header'
+import React from "react";
+import ControlPanel from "../../components/ControlPanel/ControlPanel";
+import Header from "../../components/Header/Header";
+import { Wrapper} from "./styled";
 
 const Settings = () => {
   return (
-    <Header />
-  )
-}
+    <Wrapper>
+      <Header />
+      <ControlPanel />
+    </Wrapper>
+  );
+};
 
-export default Settings
+export default Settings;

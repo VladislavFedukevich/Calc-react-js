@@ -1,13 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
-
-import Header from '../../components/Header/Header'
+import Header from "../../components/Header/Header";
+import { Wrapper } from "./styled";
 
 const Home = () => {
   return (
-    <Header />
-  )
-}
+    <Wrapper>
+      <Header />
+    </Wrapper>
+  );
+};
 
-export default Home
+export default Home;

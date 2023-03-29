@@ -1,12 +1,11 @@
 import React from "react";
-import { Header_name, LinkText, List, NavLink } from "../../pages/Home/styled";
-import { Container } from "./styled";
+import { Header_name, LinkText, List, NavLink, Wrapper } from "./styled";
 
-import { TABS } from "../../constants/constants";
+import { TABS } from "../../constants/tabs";
 
 const Header = () => {
   return (
-    <Container>
+    <Wrapper>
       <Header_name>Calculator</Header_name>
       <List>
         {TABS.map((tab, i) => (
@@ -15,7 +14,7 @@ const Header = () => {
           </NavLink>
         ))}
       </List>
-    </Container>
+    </Wrapper>
   );
 };
 

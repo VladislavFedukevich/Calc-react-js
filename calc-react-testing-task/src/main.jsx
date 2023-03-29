@@ -10,6 +10,7 @@ import {
 
 import Home from "./pages/Home/Home";
 import Settings from "./pages/Settings/Settings";
+import Home_CC from './pages/Home_CC/index'
 
 import './main.css';
 
@@ -20,6 +21,7 @@ const Main = () => {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="home_cc" element={<Home_CC/>} />
       </Routes>
     </Router>
   );
