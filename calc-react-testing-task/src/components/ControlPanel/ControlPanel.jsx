@@ -6,12 +6,12 @@ const ControlPanel = () => {
     <Wrapper>
       <Text large>Settings</Text>
       <Text>Switch theme</Text>
-      <ChangeTheme>
+      <Toggle>
         <Text>Change Theme</Text>
-      </ChangeTheme>
-      <Clear>
+      </Toggle>
+      <Toggle>
         <Text>Clear all history</Text>
-      </Clear>
+      </Toggle>
     </Wrapper>
   );
 };

@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   gap: 30px;
 `;
 
-export const ChangeTheme = styled.div`
+export const Toggle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
