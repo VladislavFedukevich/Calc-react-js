@@ -1,5 +1,5 @@
 import React from "react";
-import { ChangeTheme, Wrapper, Text, Clear } from "./styled";
+import { Wrapper, Text, Toggle } from "./styled";
 
 const ControlPanel = () => {
   return (
