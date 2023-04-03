@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import {
   BrowserRouter as Router,
@@ -16,7 +16,6 @@ import "./styles/styled.js";
 
 import { GlobalStyles } from "./styles/styled.js";
 import { light, dark } from "./styles/ThemeStyled";
-import * as theme from "./styles/ThemeStyled";
 
 const Main = () => {
   const [currentTheme, setTheme] = useState(light);

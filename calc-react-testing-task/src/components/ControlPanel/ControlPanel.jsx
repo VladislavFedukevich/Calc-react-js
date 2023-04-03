@@ -2,8 +2,6 @@ import React from "react";
 
 import { Wrapper, Text, ToggleTheme, ToggleHistory } from "./styled";
 
-import { light, dark } from "../../styles/ThemeStyled";
-
 const ControlPanel = ({ toggleTheme }) => {
   return (
     <Wrapper>

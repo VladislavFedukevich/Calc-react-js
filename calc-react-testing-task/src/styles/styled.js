@@ -8,15 +8,4 @@ export const GlobalStyles = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  .light {
-    background-color: ${theme.light.colors.header};
-  }
-  .dark {
-    background-color: ${theme.dark.colors.header};
-  }
-
-  .active{
-    border: 3px solid hsl(0, 0%, 87%);
-  }
 }`;
