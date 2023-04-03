@@ -1,13 +1,13 @@
 import React from "react";
 import ControlPanel from "../../components/ControlPanel/ControlPanel";
 import Header from "../../components/Header/Header";
-import { Wrapper} from "./styled";
+import { Wrapper } from "./styled";
 
-const Settings = () => {
+const Settings = ({ toggleTheme }) => {
   return (
     <Wrapper>
       <Header />
-      <ControlPanel />
+      <ControlPanel toggleTheme={toggleTheme} />
     </Wrapper>
   );
 };

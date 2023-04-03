@@ -1,12 +1,12 @@
-import React from 'react'
-import { Count, Wrapper } from './styled'
+import React from "react";
+import { Count, Wrapper } from "./styled";
 
-const Display = () => {
+const Display = ({ outputDisplay }) => {
   return (
     <Wrapper>
-      <Count>0</Count>
+      <Count>{outputDisplay.map(el => el)?? null}</Count>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Display
+export default Display;

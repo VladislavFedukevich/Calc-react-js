@@ -7,7 +7,8 @@ export const Wrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: grey;
+  background-color: ${({ theme }) => theme.colors.header};
+  border-bottom: 3px solid ${({ theme }) => theme.colors.border};
   margin: 0;
   padding: 0 20px 0 20px;
 `;
@@ -21,12 +22,13 @@ export const NavLink = styled(BaseNavLink)`
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: black;
+  color: ${({ theme }) => theme.colors.text};
   &.active {
-    color: blue;
+    color: ${({ theme }) => theme.colors.active};
+    font-weight: ${({theme}) => theme.colors.bold}
   }
   &:hover {
-    color: white;
+    color: ${({ theme }) => theme.colors.link};
   }
 `;
 

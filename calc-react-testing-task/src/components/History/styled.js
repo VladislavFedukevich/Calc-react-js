@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   border-left: 1px solid grey;
 `;
 export const Title = styled.p`
-  color: black;
+  color: ${({ theme }) => theme.colors.text};
   text-align: center;
   font-size: 20px;
 `;
