@@ -8,7 +8,6 @@ const Home = () => {
   return (
     <Wrapper>
       <Header />
-      {/* <Keypad /> */}
       <Calculator />
     </Wrapper>
   );

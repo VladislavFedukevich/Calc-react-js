@@ -1,17 +1,18 @@
 import React from "react";
-import { Wrapper, Text, Toggle } from "./styled";
+
+import { Wrapper, Text, ToggleTheme, ToggleHistory } from "./styled";
 
 const ControlPanel = () => {
   return (
     <Wrapper>
       <Text large>Settings</Text>
       <Text>Switch theme</Text>
-      <Toggle>
-        <Text>Change Theme</Text>
-      </Toggle>
-      <Toggle>
+      <ToggleTheme>
+        <Text>Theme</Text>
+      </ToggleTheme>
+      <ToggleHistory>
         <Text>Clear all history</Text>
-      </Toggle>
+      </ToggleHistory>
     </Wrapper>
   );
 };
