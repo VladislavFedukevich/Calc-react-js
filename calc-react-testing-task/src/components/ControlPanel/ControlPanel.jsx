@@ -9,10 +9,7 @@ const ControlPanel = ({ toggleTheme }) => {
     <Wrapper>
       <Text large>Settings</Text>
       <ToggleTheme onClick={toggleTheme}>
-        <Text>Dark theme</Text>
-      </ToggleTheme>
-      <ToggleTheme onClick={toggleTheme}>
-        <Text>Light theme</Text>
+        <Text>Switch theme</Text>
       </ToggleTheme>
       <ToggleHistory>
         <Text>Clear all history</Text>
