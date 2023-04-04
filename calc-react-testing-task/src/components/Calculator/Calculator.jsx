@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
 import React from "react";
 import Display from "../Display/Display";
 import Keypad from "../Keypad/Keypad";
 import History from "../History/History";
 
+import { setOutputDisplay, setHistory } from "../../utils/actions";
+
 import { Wrapper } from "./styled";
 
-const Calculator = () => {
-  const [outputDisplay, setOutputDisplay] = useState(["0"]);
+const Calculator = ({ outputDisplay, setOutputDisplay, history, setHistory }) => {
+  const handleCalculate = () => {
+    const result = eval(outputDisplay.join(""));
+    setHistory([...history, `${outputDisplay.join("")}=${result}`]);
+    setOutputDisplay([result.toString()]);
+  };
 
   useEffect(() => {
     console.log(outputDisplay);
@@ -17,10 +24,24 @@ const Calculator = () => {
   return (
     <Wrapper>
       <Display outputDisplay={outputDisplay} />
-      <Keypad outputDisplay={outputDisplay} setOutputDisplay={setOutputDisplay} />
-      <History />
+      <Keypad
+        outputDisplay={outputDisplay}
+        setOutputDisplay={setOutputDisplay}
+        onCalculate={handleCalculate}
+      />
+      <History history={history} />
     </Wrapper>
   );
 };
 
-export default Calculator;
+const mapStateToProps = (state) => ({
+  outputDisplay: state.outputDisplay,
+  history: state.history,
+});
+
+const mapDispatchToProps = {
+  setOutputDisplay,
+  setHistory,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Calculator);

@@ -1,8 +1,8 @@
 export const store = {
   buttons: [
-    { val: "7" },
     { val: "C" },
-    { val: "9" },
+    { val: "7" },
+    { val: "8" },
     { val: "9" },
     { val: "*" },
     { val: "-" },

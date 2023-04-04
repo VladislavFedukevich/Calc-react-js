@@ -1,12 +1,23 @@
-import React from 'react'
-import { Title, Wrapper } from './styled'
+import React from "react";
+import { connect } from "react-redux";
+import { Item, List, Title, Wrapper } from "./styled";
 
-const History = () => {
+const History = ({ history }) => {
   return (
     <Wrapper>
       <Title>History:</Title>
+      <List>
+        {history.map((item, index) => (
+          <Item key={index}>{item}</Item>
+        ))}
+      </List>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default History
+const mapStateToProps = (state) => ({
+  history: state.history,
+});
+
+
+export default connect(mapStateToProps)(History);

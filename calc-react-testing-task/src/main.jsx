@@ -6,6 +6,8 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 import Home from "./pages/Home/Home";
 import Settings from "./pages/Settings/Settings";
@@ -46,6 +48,8 @@ export default Main;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Main />
+    <Provider store={store}>
+      <Main />
+    </Provider>
   </React.StrictMode>
 );
