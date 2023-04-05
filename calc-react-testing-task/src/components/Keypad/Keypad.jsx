@@ -4,6 +4,14 @@ import { setOutputDisplay } from "@utils/actions";
 import { Wrapper, Button } from "./styled";
 import { store } from "@constants/key_value";
 
+const mapStateToProps = (state) => ({
+  outputDisplay: state.outputDisplay,
+});
+
+const mapDispatchToProps = {
+  setOutputDisplay,
+};
+
 const Keypad = ({ setOutputDisplay, outputDisplay, onCalculate }) => {
   const changeDisplay = (e) => {
     const mathString = outputDisplay.join("");
@@ -39,14 +47,6 @@ const Keypad = ({ setOutputDisplay, outputDisplay, onCalculate }) => {
       })}
     </Wrapper>
   );
-};
-
-const mapStateToProps = (state) => ({
-  outputDisplay: state.outputDisplay,
-});
-
-const mapDispatchToProps = {
-  setOutputDisplay,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Keypad);

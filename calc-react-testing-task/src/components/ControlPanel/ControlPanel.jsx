@@ -5,6 +5,10 @@ import { clearHistory } from "@utils/actions";
 
 import { Wrapper, Text, ToggleTheme, ToggleHistory } from "./styled";
 
+const mapDispatchToProps = (dispatch) => ({
+  clearHistory: () => dispatch(clearHistory())
+});
+
 const ControlPanel = ({ toggleTheme, clearHistory }) => {
   const handleClearHistory = () => {
     clearHistory();
@@ -22,9 +26,5 @@ const ControlPanel = ({ toggleTheme, clearHistory }) => {
     </Wrapper>
   );
 };
-
-const mapDispatchToProps = (dispatch) => ({
-  clearHistory: () => dispatch(clearHistory())
-});
 
 export default connect(null, mapDispatchToProps)(ControlPanel);

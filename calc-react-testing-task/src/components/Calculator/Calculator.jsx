@@ -10,6 +10,16 @@ import { setOutputDisplay, setHistory } from "@utils/actions";
 
 import { Wrapper } from "./styled";
 
+const mapStateToProps = (state) => ({
+  outputDisplay: state.outputDisplay,
+  history: state.history,
+});
+
+const mapDispatchToProps = {
+  setOutputDisplay,
+  setHistory,
+};
+
 const Calculator = ({ outputDisplay, setOutputDisplay, history, setHistory }) => {
   const handleCalculate = () => {
     const result = eval(outputDisplay.join(""));
@@ -32,16 +42,6 @@ const Calculator = ({ outputDisplay, setOutputDisplay, history, setHistory }) =>
       <History history={history} />
     </Wrapper>
   );
-};
-
-const mapStateToProps = (state) => ({
-  outputDisplay: state.outputDisplay,
-  history: state.history,
-});
-
-const mapDispatchToProps = {
-  setOutputDisplay,
-  setHistory,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculator);
