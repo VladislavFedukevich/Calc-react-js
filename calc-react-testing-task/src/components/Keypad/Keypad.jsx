@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setOutputDisplay } from "../../utils/actions";
+import { setOutputDisplay } from "@utils/actions";
 import { Wrapper, Button } from "./styled";
-import { store } from "../../constants/key_value";
+import { store } from "@constants/key_value";
 
 const Keypad = ({ setOutputDisplay, outputDisplay, onCalculate }) => {
   const changeDisplay = (e) => {

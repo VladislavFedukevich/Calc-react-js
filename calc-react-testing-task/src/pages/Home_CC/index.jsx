@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/Header/Header";
+import Header from "@components/Header/Header";
 import { Wrapper } from "./styled";
 
 class Home_CC extends React.Component {

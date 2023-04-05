@@ -1,7 +1,7 @@
 import React from "react";
 import { Header_name, LinkText, List, NavLink, Wrapper } from "./styled";
 
-import { TABS } from "../../constants/tabs";
+import { TABS } from "@constants/tabs";
 
 const Header = () => {
   return (

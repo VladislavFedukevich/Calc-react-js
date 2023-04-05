@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { clearHistory } from "../../utils/actions";
+import { clearHistory } from "@utils/actions";
 
 import { Wrapper, Text, ToggleTheme, ToggleHistory } from "./styled";
 

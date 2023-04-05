@@ -8,5 +8,5 @@ export const Wrapper = styled.div`
     'display history'
     'keypad history';
   height: 100%;
-  padding: 0 20px 0 20px;
+  padding: 0 0 0 0;
 `

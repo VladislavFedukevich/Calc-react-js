@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import React from "react";
-import Display from "../Display/Display";
-import Keypad from "../Keypad/Keypad";
-import History from "../History/History";
+import Display from "@components/Display/Display";
+import Keypad from "@components/Keypad/Keypad";
+import History from "@components/History/History";
 
-import { setOutputDisplay, setHistory } from "../../utils/actions";
+import { setOutputDisplay, setHistory } from "@utils/actions";
 
 import { Wrapper } from "./styled";
 

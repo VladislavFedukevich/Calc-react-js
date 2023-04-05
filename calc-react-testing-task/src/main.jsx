@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
   BrowserRouter as Router,
@@ -7,17 +7,16 @@ import {
   Navigate,
 } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./store/store";
+import store from "@store/store";
 
-import Home from "./pages/Home/Home";
-import Settings from "./pages/Settings/Settings";
-import Home_CC from "./pages/Home_CC/index";
+import Home from "@pages/Home/Home";
+import Settings from "@pages/Settings/Settings";
+import Home_CC from "@pages/Home_CC";
 
 import { ThemeProvider } from "styled-components";
-import "./styles/styled.js";
 
-import { GlobalStyles } from "./styles/styled.js";
-import { light, dark } from "./styles/ThemeStyled";
+import { GlobalStyles } from "@styles/styled";
+import { light, dark } from "@styles/ThemeStyled";
 
 const Main = () => {
   const [currentTheme, setTheme] = useState(light);
@@ -46,7 +45,9 @@ const Main = () => {
 
 export default Main;
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Main />
