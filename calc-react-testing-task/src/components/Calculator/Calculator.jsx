@@ -5,6 +5,7 @@ import React from "react";
 import Display from "@components/Display/Display";
 import Keypad from "@components/Keypad/Keypad";
 import History from "@components/History/History";
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 
 import { setOutputDisplay, setHistory } from "@utils/actions";
 
@@ -103,15 +104,17 @@ const Calculator = ({
     }, [outputDisplay]);
 
     return (
-        <Wrapper>
-            <Display outputDisplay={outputDisplay} />
-            <Keypad
-                outputDisplay={outputDisplay}
-                setOutputDisplay={setOutputDisplay}
-                onCalculate={handleCalculate}
-            />
-            <History history={history} />
-        </Wrapper>
+        <ErrorBoundary>
+            <Wrapper>
+                <Display outputDisplay={outputDisplay} />
+                <Keypad
+                    outputDisplay={outputDisplay}
+                    setOutputDisplay={setOutputDisplay}
+                    onCalculate={handleCalculate}
+                />
+                <History history={history} />
+            </Wrapper>
+        </ErrorBoundary>
     );
 };
 

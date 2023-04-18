@@ -6,25 +6,25 @@ import { clearHistory } from "@utils/actions";
 import { Wrapper, Text, ToggleTheme, ToggleHistory } from "./styled";
 
 const mapDispatchToProps = (dispatch) => ({
-  clearHistory: () => dispatch(clearHistory())
+    clearHistory: () => dispatch(clearHistory()),
 });
 
 const ControlPanel = ({ toggleTheme, clearHistory }) => {
-  const handleClearHistory = () => {
-    clearHistory();
-  };
+    const handleClearHistory = () => {
+        clearHistory();
+    };
 
-  return (
-    <Wrapper>
-      <Text large>Settings</Text>
-      <ToggleTheme onClick={toggleTheme}>
-        <Text>Switch theme</Text>
-      </ToggleTheme>
-      <ToggleHistory onClick={handleClearHistory}>
-        <Text>Clear all history</Text>
-      </ToggleHistory>
-    </Wrapper>
-  );
+    return (
+        <Wrapper>
+            <Text large>Settings</Text>
+            <ToggleTheme onClick={toggleTheme}>
+                <Text>Switch theme</Text>
+            </ToggleTheme>
+            <ToggleHistory onClick={handleClearHistory}>
+                <Text>Clear all history</Text>
+            </ToggleHistory>
+        </Wrapper>
+    );
 };
 
 export default connect(null, mapDispatchToProps)(ControlPanel);

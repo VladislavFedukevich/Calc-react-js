@@ -5,12 +5,12 @@ import { Wrapper } from "./styled";
 import Calculator from "@components/Calculator/Calculator";
 
 const Home = () => {
-  return (
-    <Wrapper>
-      <Header />
-      <Calculator />
-    </Wrapper>
-  );
+    return (
+        <Wrapper>
+            <Header />
+            <Calculator />
+        </Wrapper>
+    );
 };
 
 export default Home;
