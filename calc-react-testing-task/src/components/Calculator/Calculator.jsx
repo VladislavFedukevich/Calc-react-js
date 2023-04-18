@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import React from "react";
@@ -116,6 +117,13 @@ const Calculator = ({
             </Wrapper>
         </ErrorBoundary>
     );
+};
+
+Calculator.propTypes = {
+    outputDisplay: PropTypes.array.isRequired,
+    setOutputDisplay: PropTypes.func.isRequired,
+    history: PropTypes.array.isRequired,
+    setHistory: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculator);

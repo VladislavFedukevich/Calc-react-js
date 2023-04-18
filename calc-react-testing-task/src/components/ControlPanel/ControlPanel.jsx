@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { clearHistory } from "@utils/actions";
@@ -25,6 +26,11 @@ const ControlPanel = ({ toggleTheme, clearHistory }) => {
             </ToggleHistory>
         </Wrapper>
     );
+};
+
+ControlPanel.propTypes = {
+    toggleTheme: PropTypes.func.isRequired,
+    clearHistory: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(ControlPanel);

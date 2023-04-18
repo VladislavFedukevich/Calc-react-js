@@ -1,8 +1,11 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
+
 import { setOutputDisplay } from "@utils/actions";
-import { Wrapper, Button } from "./styled";
 import { store } from "@constants/key_value";
+
+import { Wrapper, Button } from "./styled";
 
 const mapStateToProps = (state) => ({
     outputDisplay: state.outputDisplay,
@@ -58,5 +61,11 @@ const Keypad = ({ setOutputDisplay, outputDisplay, onCalculate }) => {
         </Wrapper>
     );
 };
+
+Keypad.propTypes = {
+    setOutputDisplay: PropTypes.func.isRequired,
+    outputDisplay: PropTypes.array.isRequired,
+    onCalculate: PropTypes.func.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Keypad);
