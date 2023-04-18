@@ -27,8 +27,17 @@ const Calculator = ({
     setHistory,
 }) => {
     const indexOperator = (expression) => {
+        let isUnary = true;
         for (let i = 0; i < expression.length; i++) {
-            if (["*", "/", "+", "-"].includes(expression[i])) return i;
+            if (expression[i] === " ") continue;
+            if (["*", "/", "+", "-"].includes(expression[i])) {
+                if (isUnary) {
+                    isUnary = false;
+                    continue;
+                }
+                return i;
+            }
+            isUnary = false;
         }
         return -1;
     };
@@ -50,20 +59,33 @@ const Calculator = ({
     const evaluateExpression = (node) => {
         if (!node) return 0;
 
-        if (!isNaN(node.value)) return parseFloat(node.value);
+        if (!isNaN(node.value)) {
+            const value = parseFloat(node.value);
+            return value.toFixed(3);
+        }
 
         let leftValue = evaluateExpression(node.left);
         let rightValue = evaluateExpression(node.right);
 
         switch (node.value) {
             case "+":
-                return leftValue + rightValue;
+                return (parseFloat(leftValue) + parseFloat(rightValue)).toFixed(
+                    3
+                );
             case "-":
-                return leftValue - rightValue;
+                return (parseFloat(leftValue) - parseFloat(rightValue)).toFixed(
+                    3
+                );
             case "*":
-                return leftValue * rightValue;
+                return (parseFloat(leftValue) * parseFloat(rightValue)).toFixed(
+                    3
+                );
             case "/":
-                return leftValue / rightValue;
+                return (parseFloat(leftValue) / parseFloat(rightValue)).toFixed(
+                    3
+                );
+            case "unary-":
+                return (-1 * parseFloat(rightValue)).toFixed(3);
             default:
                 return 0;
         }
