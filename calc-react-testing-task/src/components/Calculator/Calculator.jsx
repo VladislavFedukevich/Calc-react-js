@@ -31,7 +31,7 @@ const Calculator = ({
             if (["*", "/", "+", "-"].includes(expression[i])) return i;
         }
         return -1;
-    }
+    };
 
     const buildExpressionTree = (expression) => {
         const index = indexOperator(expression);
@@ -45,7 +45,7 @@ const Calculator = ({
                 right: buildExpressionTree(expression.slice(index + 1).trim()),
             };
         }
-    }
+    };
 
     const evaluateExpression = (node) => {
         if (!node) return 0;
@@ -67,11 +67,11 @@ const Calculator = ({
             default:
                 return 0;
         }
-    }
+    };
 
     const handleCalculate = () => {
         const tree = buildExpressionTree(outputDisplay.join(""));
-        const result = evaluateExpression(tree)
+        const result = evaluateExpression(tree);
         setHistory([...history, `${outputDisplay.join("")}=${result}`]);
         setOutputDisplay([result.toString()]);
     };
