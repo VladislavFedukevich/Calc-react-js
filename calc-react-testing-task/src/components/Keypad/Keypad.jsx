@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { setOutputDisplay } from "@utils/actions";
@@ -16,7 +16,13 @@ const mapDispatchToProps = {
 };
 
 const Keypad = ({ setOutputDisplay, outputDisplay, onCalculate }) => {
+    const [isCalculatorOn, setIsCalculatorOn] = useState(true);
+
     const changeDisplay = (e) => {
+        if (!isCalculatorOn && e.target.textContent !== "C") {
+            return;
+        }
+
         const mathString = outputDisplay.join("");
 
         if (
@@ -27,18 +33,28 @@ const Keypad = ({ setOutputDisplay, outputDisplay, onCalculate }) => {
             return;
         } else if (outputDisplay.length === 1 && outputDisplay[0] == 0) {
             setOutputDisplay([e.target.textContent]);
-        } else if (e.target.textContent === "=")
-            setOutputDisplay([eval(mathString)]);
-        else if (e.target.textContent === ")" && !mathString.includes(")"))
+        } else if (e.target.textContent === ")" && !mathString.includes(")")) {
             return;
-        else if (
+        } else if (
             !/[0-9]/g.test(e.target.textContent) &&
             !/[0-9]/g.test(mathString[mathString.length - 1])
-        )
+        ) {
             return;
-        else if (e.target.textContent === "CE") setOutputDisplay([0]);
-        else {
+        } else if (e.target.textContent === "CE") {
+            setOutputDisplay([0]);
+        } else {
             setOutputDisplay([...outputDisplay, e.target.textContent]);
+        }
+    };
+
+    const toggleCalculator = () => {
+        setIsCalculatorOn(!isCalculatorOn);
+        if (!isCalculatorOn) {
+            setOutputDisplay([0]);
+            console.log("on");
+        } else {
+            setOutputDisplay([]);
+            console.log("off");
         }
     };
 
@@ -46,16 +62,19 @@ const Keypad = ({ setOutputDisplay, outputDisplay, onCalculate }) => {
         <Wrapper>
             {store.buttons.map((item, i) => {
                 return (
-                    (
-                        <Button
-                            key={item.val}
-                            onClick={
-                                item.val === "=" ? onCalculate : changeDisplay
-                            }
-                        >
-                            {item.val}
-                        </Button>
-                    ) ?? null
+                    <Button
+                        key={item.val}
+                        onClick={
+                            item.val === "="
+                                ? onCalculate
+                                : item.val === "C"
+                                ? toggleCalculator
+                                : changeDisplay
+                        }
+                        disabled={!isCalculatorOn && item.val !== "C"}
+                    >
+                        {item.val}
+                    </Button>
                 );
             })}
         </Wrapper>
@@ -65,7 +84,7 @@ const Keypad = ({ setOutputDisplay, outputDisplay, onCalculate }) => {
 Keypad.propTypes = {
     setOutputDisplay: PropTypes.func.isRequired,
     outputDisplay: PropTypes.array.isRequired,
-    onCalculate: PropTypes.func.isRequired
-}
+    onCalculate: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Keypad);
